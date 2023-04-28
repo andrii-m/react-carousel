@@ -1,4 +1,3 @@
-
 const categories = {
   category: "UTRUSTNING",
   subCategories: [
@@ -11,7 +10,7 @@ const categories = {
         { category: "Mikrofoner" },
         { category: "Ljudstativ" },
         { category: "Övrigt" },
-      ]
+      ],
     },
     {
       category: "LJUS",
@@ -52,7 +51,7 @@ const categories = {
         { category: "Test" },
         { category: "Övrigt" },
       ],
-    }
+    },
   ],
 };
 
@@ -60,7 +59,7 @@ export const categoryByQualifiedName = {};
 
 function initCategories(category, parents = []) {
   category.parents = parents;
-  category.qualifiedName =  [...parents, category.category].join(' > '); 
+  category.qualifiedName = [...parents, category.category].join(" > ");
   categoryByQualifiedName[category.qualifiedName] = category;
   if (!category.subCategories) return;
   category.subCategories.forEach((subCat) => {
@@ -68,8 +67,5 @@ function initCategories(category, parents = []) {
   });
 }
 initCategories(categories);
-
-
-console.log("qualified", categoryByQualifiedName)
 
 export default categories;
